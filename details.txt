@@ -1,0 +1,58 @@
+1. Create file chapter1.txt. Then add some text.
+2. Initialize git: "git init"
+3. In order to start tracking the changes of my files, for example, chapter1.txt, then I need to add this file to what's called a staging area. And that is basically a intermediate place
+  you can pick and choose which files inside you are working directory that you want to commit.
+4. To see what's currently inside the staging area, you use the "git status" and it shows you that there are untracked files which will be shown in red and this is something that simply
+  inside your working directory but it's not in the staging area.
+  > git status
+5. In order to add it to staging area and to start tracking changes in it, then we have to use the command "git add filename" then if we try again hit status again you can see that file
+  has been added as a new file and it is now green. So this now in the staging area and it's ready to be committed. 
+  > git add chapter1.txt
+  > git status
+6. To commit this under version control. So the command is "git commit" and -m flag to add commit message. Commit message is really important. It's something that helps you keep track of
+  what changes you have made in each commit. So when you create a new save point, you want to be as explicit as possible about what changes were made between the last save point and this
+  current save point. So for our initial commit we can use something very simple like "Initial Commit" e.g. git commit -m "Initial Commit". And this shows that this our starting point. 
+  Alternatively if you want to be slightly more specific because in our case we've actually completed chapter1, so you can write "Complete Chapter 1". The commit messages usually are in
+  "present tense" and this the best practice. That is you are submitting your changes now.
+  > git commit -m "Complete Chapter 1"
+7. To see what commits you have made by using "git log" command. You can see this commit is made at what time and by this person. And it also has a hash and this has uniquely identifies
+  this particular commit. And then right at the end you see this commit message of what this savepoint was all about.
+8. Now we'll create 2 more chapters (chapter2.txt, chapter3.txt). Let's add these 2 new files to staging area. If you see "git status" you will see these 2 files that are untracked which
+  are only in the working directory and not yet inside the staging area. So we can put them into the staging area by simply adding each of them as we did before.
+  > git status
+  > git add chapter2.txt
+  > git add chapter3.txt
+9. If you have quite a few files then it can get incredibly tedious having to do this one by one. So to add all files we simple say "git add ." i.e. add everything inside this current 
+  directory.
+  > git add .
+  > git status
+10. You can see these files are added to staging area. Now we're going to commit those 2 files to a new commit to a new save point.
+  > git commit -m "complete chapter 2 and 3"
+11. Now check it out using "git log", that we have two commits both with different hashes because they are unique. So the initial one was "Complete Chapter 1" and later on second commit
+  "complete chapter 2 and 3". And (HEAD -> master) is directing to 2nd commit that is recent commit. That is HEAD is on 2nd commit. "HEAD" is the position or the current state that we 
+  are in.
+12. Working Directory -> (git add) -> Staging Area -> (git commit) -> Local Repository (master branch: main branch of commits or save points and it is sequencial)
+13. If we messed up our file, we can still use the last version that's under version version control and we can use a special command called "git checkout" to revert back or rollback to
+  the last position in our local repository. If in "chapter3.txt", if I accidently typed something that I didn't want to and saved it. Then I can revert the changes that I've made locally
+  in my working directory. You can see in "git status" that this file has been modified and in red.
+14. So to check what changes were done on that file "chapter3.txt" that have not been added or committed. To check differences between the current version of chapter 3 and the last save
+  point in our Git repository. We can use the command "git diff filename". You can see the red lines which is removed and green line which is added.
+  > git diff chapter3.txt
+15. To rollback the changes to previous version we use command "git checkout filename". The file will be modified to last version.
+  > git checkout chapter3.txt
+=> Here we looked mostly at local implementation of Git so saving these versions on our computer locally.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+REMOTE REPOSITORY:
+1. Here we'll see how we can create remote repository. So a repository that's hosted on somebody else's server or somebody else's computer by using "GitHub".
+2. Head over to "https://github.com" and create an account.
+3. Navigate to the top right corner and click on "+" plus arrow and select "new repository". We'll call our repository "Story" and let's give description "My masterpiece". By default all
+  repositories you create on "GitHub" are public. Once we selected "public", the next thing is that we're going to leave this part empty where it's mentioned "Initialize this repository with"
+	We're not going to initialize readme and .ignore for our repository just yet. Now click on "Create Repository"
+4. There are 2 ways you can set you repository. We are going to use command line instructions to set up our repository. So we're going to push an existing repository that we've got locally
+  onto this remote repository and to do that we need to copy the address of our GitHub repository "https://github.com/anirudhdavajpeyi/Story.git" and we are going to use below two lines
+  of code in order to transfer or push our existing local repository from the command line (given in github but we'll use different)
+  > git remote add origin https://github.com/anirudhdavajpeyi/Story.git
+  > git branch -M main
+  > git push -u origin main
+5. Go into our repository which is working directory for this particular project. We'll take a look at "git log" to see what previous commits we've got.
+  > git log
