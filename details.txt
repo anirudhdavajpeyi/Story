@@ -56,3 +56,21 @@ REMOTE REPOSITORY:
   > git push -u origin main
 5. Go into our repository which is working directory for this particular project. We'll take a look at "git log" to see what previous commits we've got.
   > git log
+6. We can see there are 2 previous commits. And I would like to push both of these commits on to GitHub. So first thing is creating a remote. So telling my local GIT repository that I've
+  created a remote repository somewhere on the internet and I want to transfer all of my commits over there. So the command that we are going to use "git remote add origin url"
+  > git remote add origin https://github.com/anirudhdavajpeyi/Story.git
+7. "origin" is simply a name of your remote and you can theoretically call it anything you want. But by convention and it's highly recommended that you simply keet the name "origin".
+8. Now that remote is created so we can push our local repository onto our remote repository which is called "origin" with command "git push -u origin master". What this line of code does
+  is that it pushes your local repository to the remote repository using the "u" flag or the "u" option which is basically links up your remote and your local repositories. And then we're 
+  going to push it towards the remote that's called "origin" and we're going to push it to the branch that's called "master". So the "master" branch is simply the default branch or the main
+  branch of all your commits.
+	Now we're going to push our local repository onto this origin remote and we're going to push to the master branch.
+  > git push -u origin master
+9. Working Directory -> (git add) -> Stagin Area -> (git commit) -> Local Repository (Git) -> (git push) -> Remote Repository (Git Hub)
+10. (.gitignore) is used to avoid uploading sensitive pieces of information such as API Keys, or passwords to your remote repositories for example GitHub.
+11. When we add files in the staging area using "git add ." or any specific file "git add filename" but we want to remove those files from staging area or undo. Then we can use the command
+  "git -rm --cached -r ." where "-rm": remove, "--cached" that is staging, "-r" for recursive and dot "." for all the files. That is remove all the files from staging area.
+  > git -rm --cached -r .
+12. (.gitignore): In this hidden file, we provide names of files which we don't want be considered in the project or to push to remote repository. We just have to provide filenames in this
+  file like "secrets.txt", ".DS_Store". And inside ".gitignore" file we can provide comments using "#" sign. 
+	We can also use wild cards i.e. *.txt that means ignore all files with extension .txt

@@ -1,0 +1,2 @@
+secrets.txt
+# we can also provide "*.txt" that is ignore all files with extension .txt
