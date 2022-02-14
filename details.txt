@@ -141,4 +141,6 @@ BRANCHES AND BRANCHING:
   inside the "alien-plot" branch. So we use the command "git merge branch_name_which_we_want_to_merge". This opens up VIM text editor, this allows you to add a merge message if you wish.
   > git checkout master
   > git merge alien-plot
-16. Now all those changes have been absorbed from alien-plot to master. "alien-plot" branch still exists.
+16. Now all those changes have been absorbed from alien-plot to master. "alien-plot" branch still exists. Now from the "master" branch if you have a look at "git log" then you can see that
+  I've got some of the previous commits but I've also got this "merge branch 'alient-plot'" which was most recent commit.
+  >
