@@ -74,3 +74,71 @@ REMOTE REPOSITORY:
 12. (.gitignore): In this hidden file, we provide names of files which we don't want be considered in the project or to push to remote repository. We just have to provide filenames in this
   file like "secrets.txt", ".DS_Store". And inside ".gitignore" file we can provide comments using "#" sign. 
 	We can also use wild cards i.e. *.txt that means ignore all files with extension .txt
+13. In github/gitignore -> Swift.gitignore: which you can copy paste. These are the names of files which you would want to ignore.
+14. Where should we put API keys or sensitive data? => You have to make sure when you're uploading your projects with these secret keys and passwords to make sure that you set up a gitignore
+  file and to include those things in there.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLONING:
+1. Here we are going to clone remote repository to pull it into your local machine. We use command "git clone" and this is a way for you pull down all of the commits and all of the versions
+  of a particular remote repository and to store the files inside your working directory.
+2. There is repository "swift-2048". We can port it onto our system and we can have a look at the code or simply run it and give it a go.
+3. We are going to click on button "Clone or download". Simply download the zip and unzip it. Now this is not as great an option as using "git clone". So this is what we're going to do.
+  We will copy the URL of this particular repository then we can go back into our terminal and clone it to our desktop. Go to Desktop in gitbash and clone it.
+  > git clone https://github.com/austinzheng/swift-2048.git
+4. Now if we take a look in our desktop folder, we can see the folder "swift-2048". So this is the project that I've just cloned down from GitHub. 
+5. Once you've cloned a project and you cd into it, you can also use "git log" to check out some of their previous commits and you can see they've got all these commit messages that tell
+  you what each commit was all about.
+  > git log
+6. So in the future when you need to grab any of the skeleton projects from our GitHub repository then you can "git clone" and grab it and download it on to your local system.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BRANCHES AND BRANCHING:
+1. Lets say we had version 1 and 2, so two commits that were made to our local repository. Now at this point we realize that we want to maybe try out something different, maybe build a new
+  feature or just to mess around with a new idea or concept. 
+2. So what we can do is instead of continuing to commit to the master branch which is the main branch that you see here, we can also create a side branch. So we can create as many branches
+  as we like. So after 2nd commit, we create a new branch and we start committing to this new branch or this experimental branch. We add some features and we write some code. Now 
+  simultaneously we can contiue working on the main branch putting out all those essential updates or bits of code that are maintaining our main project but at the same time we can continue
+  to update and work on this experimental branch trying things out and committing our experiments to this experimental branch.
+3. So now we have 2 branches that are parallel to each other and they can be developed simultaneously. Now if at some point in the future what we decide that that experiment was really
+  fruitful and the feature that we built in it was really really great and we'd like to merge it back to the main branch or to the main project, then that can be done really easily as well
+  by simply placing a merge request in. And we can bring all of those changes that we experimented with, that we messed around with back to the main project and check to see if there's any
+  conflicts that the main branch code. And if not or if after a little bit of editing then we can bring all of those changes into main working master branch. And then we can continue 
+  working from here on to the next commit or we can make more branches. And very often what you see in practice is that there'll be multiple branches being worked on at the same time for
+  any given large project. And the reason is because sometimes you are developing new feature, sometimes you are fixing bugs and all of these things may break your main project so you don't
+  want to do it on the master branch. You only want to put it onto the master branch once you've tested, once you know that everything is working fine and then you can bring your code back
+  to the working copy ready for shipment and deployment.
+4. Lets navigate to our "PycharmProjects/pythonProject/22_GIT/" Directory.
+  > git log
+5. You can see most recent commit is denoted by "HEAD" where master (local repository) and also mirrored in our remote (origin) i.e. "origin/master"
+6. to create a branch "git branch branch_name"
+  > git branch alien-plot
+7. To check all the branches: "git branch". Two branches are there and "*" shows which branch you are currently on i.e. master.
+  > git branch
+=> alient-plot
+   *master
+8. We can switch to the "alien-plot" by simply writing "git checkout alien-plot". You can see *alien-plot i.e. currently we're on "alien-plot" branch.
+  > git checkout alien-plot
+  > git branch
+=> *alien-plot
+   master
+9. Now in this branch we'll make some changes. We have made changes to chapter1 and chapter2. Lets go ahead and commit that.
+  > git add .
+  > git commit -m "modify chapter 1 and 2 to have alien theme"
+10. Now we do a "git log", we can see that we have 3 commits made on the master branch and we have 1 commit on the "alien-plot" branch.
+11. So lets go back to our master branch. So whenever you're confused where you are, you can always do a "git branch" and see where the * is.
+  > git checkout master
+12. You can see our master branch is unchanged with respect to the space and alien-plot that we did just now. Nothing changed over here. So while on the master branch I'm going to create a
+  new file, I'm going to call it chapter5.txt and lets add something. go ahead and add and commit the changes
+  > touch chapter5.txt -> inserted some data
+  > git add .
+  > git commit -m "add chapter 5"
+13. Now after "git log", now in "master" branch we have 4 commits, at 3rd commit we have "origin/master". position of our remote, so on our GitHub repository this was the latest commit that
+  it could see.
+	But on our local repository 4th commit is in fact the lates commit, the one that we added chapter5.txt
+14. You can see if we switch between the branches, that our local files actually changed as I switch branches. Let's just say that I'm quite happy with the changes I've made in terms of my
+  "alien-plot" and I would like to merge these changes back into my master branch. So I've done a little bit of experimentation on separate branch, I've messed up few things and it was a
+  great experiment. So I am going to put it back into our main master branch.
+15. In order to put into our main master branch, what you have to do is go back to the master branch "git checkout master". While we're on the master branch we're going to merge the changes
+  inside the "alien-plot" branch. So we use the command "git merge branch_name_which_we_want_to_merge". This opens up VIM text editor, this allows you to add a merge message if you wish.
+  > git checkout master
+  > git merge alien-plot
+16. Now all those changes have been absorbed from alien-plot to master. "alien-plot" branch still exists.
